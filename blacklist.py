@@ -5,7 +5,7 @@ intents = discord.Intents.default()
 intents.members = True
 client = discord.Client(intents=intents)
 
-def Vuvi_Function(file_path):
+def blacklist(file_path):
     try:
         with open(file_path, 'r') as f:
             data = json.load(f)
@@ -21,7 +21,7 @@ async def on_ready():
 
 @client.event
 async def on_member_join(member):
-    Vuvi_Function('blacklist.json')  
+    blacklist('blacklist.json')  
 
     with open('blacklist.json', 'r') as f:
         blacklist = json.load(f)
